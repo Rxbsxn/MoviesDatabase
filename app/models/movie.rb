@@ -2,4 +2,8 @@ class Movie < ApplicationRecord
   belongs_to :genre
   has_many :actors, through: :actor_movies
   has_many :actor_movies
+
+  validates :name, presence: true
+  validates :revenue, numericality: true
+  validates :genre, presence: true
 end
