@@ -24,7 +24,7 @@ RSpec.describe Movie, type: :model do
     it { should validate_numericality_of(:revenue) }
   end
 
-  describe 'should have many movies' do
+  describe 'should have many actors' do
     it { should have_many(:actors) }
   end
   
