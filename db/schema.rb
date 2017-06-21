@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621114304) do
+ActiveRecord::Schema.define(version: 20170621114415) do
 
   create_table "actor_movies", force: :cascade do |t|
     t.integer  "actor_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170621114304) do
     t.integer  "revenue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.         "genre_id"
   end
 
 end
