@@ -3,6 +3,6 @@ class Movie < ApplicationRecord
   has_many :actors, through: :actor_movies
   has_many :actor_movies
 
-  validates :name, :genre, presence: true
+  validates :name, :genre_id, :revenue, presence: true
   validates :revenue, numericality: true
 end
