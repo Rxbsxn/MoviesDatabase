@@ -2,7 +2,7 @@
   <tr>
     <td><%= actor.first_name %></td>
     <td><%= actor.last_name %></td>
-    <td><%= actor.movies.pluck(:name).take(3).join(', ') %></td>    
+    <td><%= actor.three_movies %></td>    
     <td><%= link_to 'edit', edit_actor_path(actor) %></td>
     <td><%= link_to 'delete', actor_path(actor), method: :delete %></td>
   </tr>
