@@ -1,16 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Actor, type: :model do
-  describe 'Actor count' do
-    it 'empty table' do
-      expect(Actor.count).to eq 0
-    end
-  end
-  it 'one genre in table' do
-    create(:actor)
-    expect(Actor.count).to eq 1
-  end
-
   describe 'Actor is valid' do
     let(:actor) { create(:actor) }
     it 'returns valid record' do
