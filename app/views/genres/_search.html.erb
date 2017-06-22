@@ -1,0 +1,4 @@
+<%= search_form_for @q, url: genres_path do |f| %>
+  <%= f.search_field :name_cont, placeholder: 'Search by name' %>
+  <%= f.submit "Search", class: 'btn btn-primary' %>
+<% end %>

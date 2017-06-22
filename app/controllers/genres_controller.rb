@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
   def index
-    @genres = Genre.all
+    @q = Genre.ransack(params[:q])
+    @genres = @q.result(distinct: true)
   end
 
   def new
