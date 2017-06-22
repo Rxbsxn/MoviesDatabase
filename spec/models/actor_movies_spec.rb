@@ -18,11 +18,6 @@ RSpec.describe ActorMovie, type: :model do
     end
   end
 
-  describe 'ActorMovie attribs validation' do
-    it { should validate_presence_of(:actor_id) }
-    it { should validate_presence_of(:movie_id) }
-  end
-
   describe 'should have many movies and actor_movies' do
     it { should belong_to(:movie) }
     it { should belong_to(:actor) }
