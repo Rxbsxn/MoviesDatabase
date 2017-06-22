@@ -3,5 +3,6 @@ class Genre < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :most_popular, -> { joins(:movies).group(:id).order('count(genre_id) desc').first.name }
+  scope :most_popular, -> { joins(:movies).group(:id)
+                            .order('count(genre_id) desc').first.name }
 end
