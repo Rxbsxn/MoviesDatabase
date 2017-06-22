@@ -1,0 +1,6 @@
+<%= simple_form_for @movie do |f| %>
+  <%= f.input :name %>
+  <%= f.input :revenue, as: :float, input_html: { min: 0 } %>
+  <%= f.input :genre_id, collection: Genre.all %>
+  <%= f.button :submit %>
+<% end %>

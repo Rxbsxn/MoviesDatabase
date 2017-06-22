@@ -1,0 +1,6 @@
+<%= simple_form_for @movie do |f| %>
+  <%= f.input :name %>
+  <%= f.input :revenue, as: :number %>
+  <%= f.input :genre_id, collection: Genre.all %>
+  <%= f.button :submit %>
+<% end %>
