@@ -1,16 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  describe 'Movie count' do
-    it 'empty table' do
-      expect(Movie.count).to eq 0
-    end
-  end
-  it 'one genre in table' do
-    create(:movie)
-    expect(Movie.count).to eq 1
-  end
-
   describe 'Movie is valid' do
     let(:movie) { create(:movie) }
     it 'returns valid record' do
