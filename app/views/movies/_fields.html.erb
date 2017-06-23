@@ -1,0 +1,9 @@
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.name %></td>
+    <td><%= movie.revenue %></td>
+    <td><%= movie.genre.name %></td>
+    <td><%= link_to 'edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'delete', movie_path(movie), method: :delete %></td>
+  </tr>
+<% end %>
