@@ -5,4 +5,6 @@ class Movie < ApplicationRecord
 
   validates :name, :genre_id, :revenue, presence: true
   validates :revenue, numericality: true
+
+  scope :max_revenue, -> { order(revenue: :desc).first.name }
 end
