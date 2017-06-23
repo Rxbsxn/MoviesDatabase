@@ -1,0 +1,9 @@
+<% @actors.each do |actor| %>
+  <tr>
+    <td><%= actor.first_name %></td>
+    <td><%= actor.last_name %></td>
+    <td><%= actor.three_movies %></td>    
+    <td><%= link_to 'edit', edit_actor_path(actor) %></td>
+    <td><%= link_to 'delete', actor_path(actor), method: :delete %></td>
+  </tr>
+<% end %>

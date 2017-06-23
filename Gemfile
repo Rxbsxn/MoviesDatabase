@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,6 +41,7 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.0"
   gem 'faker'
   gem 'rspec-rails'
+  gem 'selleo-controller_tests'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 
 end
