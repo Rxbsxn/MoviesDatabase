@@ -10,4 +10,8 @@ class Actor < ApplicationRecord
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def three_movies
+    movies.take(3).pluck(:name).join(' | ')  
+  end
 end

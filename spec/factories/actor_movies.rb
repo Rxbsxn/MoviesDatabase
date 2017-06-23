@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :actor_movie do
-    actor_id { Actor.first || create(:actor).id }
-    movie_id { Movie.first || create(:movie).id }
+    actor { Actor.all.sample || create(:actor).id }
+    movie { Movie.all.sample || create(:movie).id }
   end
 end
