@@ -29,5 +29,33 @@ RSpec.describe Actor, type: :model do
       actor2.movies.push(movie, movie2)
       expect(Actor.max_movies).to eq actor.full_name
     end
+  end
+
+  describe '.most_first_roles' do
+    let(:actor) { create(:actor) }
+    let(:actor2) { create(:actor) }
+    let(:award) { create(:award, role: 1) }
+    let(:award2) { create(:award) }
+    let(:award3) { create(:award) }
+
+    it('returns actor with most first roles award') do
+      actor.awards.push(award, award2)
+      actor2.awards.push(award3)
+      expect(Actor.most_first_roles).to eq actor.full_name
+    end
+  end
+
+  describe '.most_second_roles' do
+    let(:actor) { create(:actor) }
+    let(:actor2) { create(:actor) }
+    let(:award) { create(:award, role: 1) }
+    let(:award2) { create(:award, role: 1) }
+    let(:award3) { create(:award) }
+
+    it('returns actor with most second roles award') do
+      actor.awards.push(award, award2)
+      actor2.awards.push(award3)
+      expect(Actor.most_second_roles).to eq actor.full_name
+    end
   end 
 end
