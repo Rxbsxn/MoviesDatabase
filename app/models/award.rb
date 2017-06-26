@@ -1,12 +1,10 @@
 class Award < ApplicationRecord
-  ROLES = [:first_role, :second_role].freeze
-  AWARD_TYPE = [:oscar, :cann].freeze
-  enum role: ROLES
-  enum award_type: AWARD_TYPE
+  enum role: [:first_role, :second_role]
+  enum award_type: [:oscar, :cann]
 
   belongs_to :actor
   belongs_to :movie
 
-  validates :role, :award_type, :actor, :movie, :year, presence: true
+  validates :role, :award_type, :actor_id, :movie_id, :year, presence: true
   validates :year, numericality: { only_integer: true }
 end
