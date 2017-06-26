@@ -1,6 +1,7 @@
 class Actor < ApplicationRecord
   has_many :actor_movies
   has_many :movies, through: :actor_movies
+  has_many :awards
 
   validates :first_name, :last_name, presence: true
 
@@ -12,6 +13,6 @@ class Actor < ApplicationRecord
   end
 
   def three_movies
-    movies.take(3).pluck(:name).join(' | ')  
+    movies.take(3).pluck(:name).join(' | ')
   end
 end
