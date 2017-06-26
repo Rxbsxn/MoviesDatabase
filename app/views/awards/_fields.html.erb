@@ -1,0 +1,12 @@
+<% @awards.each do |award| %>
+  <tr>
+    <td><%= award.actor.first_name %></td>
+    <td><%= award.actor.last_name %></td>
+    <td><%= award.movie.name %></td>
+    <td><%= award.award_type %></td>
+    <td><%= award.role %></td>
+    <td><%= award.year %></td>
+    <td><%= link_to 'edit', edit_award_path(award) %></td>
+    <td><%= link_to 'delete', award_path(award), method: :delete %></td>
+  </tr>
+<% end %>

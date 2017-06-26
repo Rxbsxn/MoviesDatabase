@@ -1,0 +1,8 @@
+<%= simple_form_for @award do |f| %>
+  <%= f.input :actor_id, collection: Actor.all %>
+  <%= f.input :movie_id, collection: Movie.all %>
+  <%= f.input :year, as: :integer, input_html: { min: 1980 } %>
+  <%= f.input :role %>
+  <%= f.input :award_type %>
+  <%= f.button :submit %>
+<% end %>
