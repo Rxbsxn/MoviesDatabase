@@ -5,6 +5,8 @@ class Award < ApplicationRecord
   belongs_to :actor
   belongs_to :movie
 
+  ransack_alias :actor, :actor_first_name_or_actor_last_name
+
   validates :role, :award_type, :actor_id, :movie_id, :year, presence: true
   validates :year, numericality: { only_integer: true }
 end
