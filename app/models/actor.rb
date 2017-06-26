@@ -8,6 +8,12 @@ class Actor < ApplicationRecord
   scope :max_movies, -> { joins(:movies).group(:id)
                           .order("count(actor_id) desc").first.full_name }
 
+  scope :most_first_roles, -> { joins(:awards).group(:id).where("role = 0")
+                                .order("count(actor_id) desc").first.full_name }
+
+  scope :most_second_roles, -> { joins(:awards).group(:id).where("role = 1")
+                                .order("count(actor_id) desc").first.full_name }
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
