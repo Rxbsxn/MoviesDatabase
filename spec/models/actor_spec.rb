@@ -57,5 +57,19 @@ RSpec.describe Actor, type: :model do
       actor2.awards.push(award3)
       expect(Actor.most_second_roles).to eq actor.full_name
     end
-  end 
+  end
+
+  describe '.greatest_actor' do
+    let(:actor) { create(:actor) }
+    let(:actor2) { create(:actor) }
+    let(:award) { create(:award, role: 1) }
+    let(:award2) { create(:award, role: 1) }
+    let(:award3) { create(:award) }
+
+    it('returns greatest') do
+      actor.awards.push(award, award2)
+      actor2.awards.push(award3)
+      expect(Actor.greatest_actor).to eq actor2.full_name
+    end
+  end  
 end
