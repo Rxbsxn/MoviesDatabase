@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Actor, type: :model do
   describe 'Actor is valid' do
-    let(:actor) { create(:actor) }
     it 'returns valid record' do
-      expect(actor).to be_valid
+      create(:actor)
+      expect(Actor.first).to be_valid
     end
   end
 
@@ -13,63 +13,61 @@ RSpec.describe Actor, type: :model do
     it { should validate_presence_of(:last_name) }
   end
 
-  describe 'should have many movies and actor_movies' do
+  describe 'should have many movies, actor_movies and awards' do
     it { should have_many(:movies) }
     it { should have_many(:actor_movies) }
+    it { should have_many(:awards) }
   end
 
   describe '.max_movies' do
-    let(:actor) { create(:actor) }
-    let(:actor2) { create(:actor) }
-    let(:movie) { create(:movie) }
-    let(:movie2) { create(:movie) }
-    let(:movie3) { create(:movie) }
     it 'should returns actor who has highest number of films' do
-      actor.movies.push(movie, movie2, movie3)
-      actor2.movies.push(movie, movie2)
-      expect(Actor.max_movies).to eq actor.full_name
+      create(:actor, movies: [create(:movie), create(:movie)])
+      create(:actor, movies: [create(:movie)])
+
+      expect(Actor.max_movies).to eq Actor.first.full_name
     end
   end
 
   describe '.most_first_roles' do
-    let(:actor) { create(:actor) }
-    let(:actor2) { create(:actor) }
-    let(:award) { create(:award, role: 1) }
-    let(:award2) { create(:award) }
-    let(:award3) { create(:award) }
-
     it('returns actor with most first roles award') do
-      actor.awards.push(award, award2)
-      actor2.awards.push(award3)
+      create(:actor, id: 10, awards: [create(:award, role: 0), create(:award, role: 0)])
+      create(:actor, awards: [create(:award, role: 0)])
+      actor = Actor.find(10)
+
       expect(Actor.most_first_roles).to eq actor.full_name
     end
   end
 
   describe '.most_second_roles' do
-    let(:actor) { create(:actor) }
-    let(:actor2) { create(:actor) }
-    let(:award) { create(:award, role: 1) }
-    let(:award2) { create(:award, role: 1) }
-    let(:award3) { create(:award) }
-
     it('returns actor with most second roles award') do
-      actor.awards.push(award, award2)
-      actor2.awards.push(award3)
+      create(:actor, id: 10, awards: [create(:award, role: 1), create(:award, role: 1)])
+      create(:actor, awards: [create(:award, role: 1)])
+      actor = Actor.find(10)
+
       expect(Actor.most_second_roles).to eq actor.full_name
     end
   end
 
   describe '.greatest_actor' do
-    let(:actor) { create(:actor) }
-    let(:actor2) { create(:actor) }
-    let(:award) { create(:award, role: 1) }
-    let(:award2) { create(:award, role: 1) }
-    let(:award3) { create(:award) }
+    context 'Actor with 4 second role greater than 1 first' do
+      it 'returns greater actor' do
+        create(:actor, id: 10, awards: [create(:award, role: 1), create(:award, role: 1),
+                                        create(:award, role: 1), create(:award, role: 1)])
+        create(:actor, awards: [create(:award, role: 0)])
+        actor = Actor.find(10)
 
-    it('returns greatest') do
-      actor.awards.push(award, award2)
-      actor2.awards.push(award3)
-      expect(Actor.greatest_actor).to eq actor2.full_name
+        expect(Actor.greatest_actor).to eq actor.full_name
+      end
     end
-  end  
+
+    context 'Actor with 1 first role greater than 2 seconds' do
+      it 'returns greater actor with 1 first_role' do
+        create(:actor, id: 10, awards: [create(:award, role: 0)])
+        create(:actor, awards: [create(:award, role: 1), create(:award, role: 1)])
+        actor = Actor.find(10)
+
+        expect(Actor.greatest_actor).to eq actor.full_name
+      end
+    end
+  end
 end

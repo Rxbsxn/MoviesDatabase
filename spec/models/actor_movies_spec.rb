@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ActorMovie, type: :model do
   describe 'ActorMovie is valid' do
-    let(:actor_movies) { create(:actor_movie) }
     it 'returns valid record' do
-      expect(actor_movies).to be_valid
+      create(:actor_movie)
+
+      expect(ActorMovie.first).to be_valid
     end
   end
 
