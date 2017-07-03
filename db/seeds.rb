@@ -9,3 +9,5 @@ FactoryGirl.create_list('genre', 10)
 FactoryGirl.create_list('movie', 10)
 FactoryGirl.create_list('actor', 10)
 FactoryGirl.create_list('actor_movie', 10)
+FactoryGirl.create_list('award', 15)
+

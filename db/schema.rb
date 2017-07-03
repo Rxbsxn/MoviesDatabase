@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170626120754) do
     t.integer  "revenue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "genre_id"
+    t.integer  "genre_id"
   end
 
 end
