@@ -23,7 +23,7 @@ class AwardsController < ApplicationController
 
   def update
     award
-    if actor.update(award_params)
+    if award.update(award_params)
       redirect_to awards_path
     else
       render :edit
