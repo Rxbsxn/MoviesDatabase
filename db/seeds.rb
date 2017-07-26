@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-FactoryGirl.create_list('genre', 10)
-FactoryGirl.create_list('movie', 10)
-FactoryGirl.create_list('actor', 10)
-FactoryGirl.create_list('actor_movie', 10)
-FactoryGirl.create_list('award', 15)
+FactoryGirl.create_list('genre', 1)
+FactoryGirl.create_list('movie', 1)
+FactoryGirl.create_list('actor', 1)
+FactoryGirl.create_list('actor_movie', 1)
+FactoryGirl.create_list('award', 1)
 
