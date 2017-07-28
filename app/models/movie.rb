@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   belongs_to :genre
   has_many :actors, through: :actor_movies
-  has_many :actor_movies
+  has_many :actor_movies, dependent: :destroy
   has_many :awards
 
   validates :name, :genre, :revenue, presence: true
