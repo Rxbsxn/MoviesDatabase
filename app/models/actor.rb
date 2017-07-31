@@ -1,5 +1,5 @@
 class Actor < ApplicationRecord
-  has_many :actor_movies
+  has_many :actor_movies, dependent: :destroy
   has_many :movies, through: :actor_movies
   has_many :awards
 
@@ -27,7 +27,7 @@ class Actor < ApplicationRecord
   end
 
   def points
-    (awards.where("role = 0").count * 3) + (awards.where("role = 1").count * 1)   
+    (awards.where("role = 0").count * 3) + (awards.where("role = 1").count * 1)
   end
 
   def three_movies
