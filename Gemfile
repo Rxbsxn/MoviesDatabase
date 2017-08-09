@@ -21,6 +21,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'enum_help'
 gem 'rack-cors'
 gem 'jsonapi-resources'
+gem 'jwt'
+gem 'knock'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
