@@ -10,7 +10,7 @@ RSpec.describe Movie, type: :model do
 
   describe 'Movie attribs validation' do
     it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:genre_id) }
+    it { should validate_presence_of(:genre) }
     it { should validate_numericality_of(:revenue) }
   end
 
@@ -23,7 +23,7 @@ RSpec.describe Movie, type: :model do
   end
 
   describe '.max_revenue' do
-    it 'returns movie with maximum value' do    
+    it 'returns movie with maximum value' do
       create(:movie, id: 5, revenue: 99999999)
       create(:movie)
       movie = Movie.find(5)

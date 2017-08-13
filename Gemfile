@@ -22,7 +22,9 @@ gem 'enum_help'
 gem 'rack-cors'
 gem 'jsonapi-resources'
 gem 'jwt'
+gem 'devise'
 gem 'knock'
+gem 'json_api_client'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
