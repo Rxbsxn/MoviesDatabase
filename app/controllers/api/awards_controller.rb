@@ -1,2 +1,2 @@
-class Api::AwardsController < JSONAPI::ResourceController
+class Api::AwardsController < JSONAPIBaseController
 end

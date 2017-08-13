@@ -1,2 +1,2 @@
-class Api::MoviesController < JSONAPI::ResourceController
+class Api::MoviesController < JSONAPIBaseController
 end

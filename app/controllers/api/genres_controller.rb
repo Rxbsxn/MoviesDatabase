@@ -1,2 +1,2 @@
-class Api::GenresController < JSONAPI::ResourceController
+class Api::GenresController < JSONAPIBaseController
 end

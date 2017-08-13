@@ -1,2 +1,2 @@
-class Api::ActorsController < JSONAPI::ResourceController
+class Api::ActorsController < JSONAPIBaseController
 end
